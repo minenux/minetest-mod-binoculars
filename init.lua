@@ -10,7 +10,7 @@ minetest.register_globalstep(function()
 		if not privs.zoom and player:get_wielded_item():get_name()=="binoculars:binoculars" then
 			privs.zoom = true
 			minetest.set_player_privs(name, privs)
-		elseif privs.zoom and player:get_wielded_item():get_name()~="binoculars:binoculars" then
+		elseif privs.zoom and player:get_wielded_item():get_name()~="binoculars:binoculars" and not privs.alwayszoom then
 			privs.zoom = nil
 			minetest.set_player_privs(name, privs)
 		end
@@ -25,3 +25,5 @@ minetest.register_craft({
 		{"default:steel_ingot", "",  "default:steel_ingot"}
 	}
 })
+
+minetest.register_privilege("alwayszoom", {})
