@@ -3,6 +3,7 @@ minetest.register_craftitem("binoculars:binoculars", {
 	inventory_image = "binoculars.png"
 })
 
+-- TODO this method will crash servers of large amount of users connected, so pending changed the way of
 minetest.register_globalstep(function()
 	for _,player in ipairs(minetest.get_connected_players()) do
 		local name = player:get_player_name()
